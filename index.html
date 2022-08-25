@@ -9,10 +9,14 @@
 <body>
     <div id="content">  </div>
     <script>
-        fetch('https://ci-swapi.herokuapp.com/api/')
-        .then(response => response.text())
-        .then.(data => {
+        fetch('https://ci-swapi.herokuapp.com/api/frukt')
+        .then(response => response.json())
+        .then(data => {
             document.querySelector('#content').innerHTML = data;
+        })
+        .catch((e)=> {
+            console.error('Error: ', e);
+            document.querySelector('#content').innerHTML = 'are you mad?';
         })
     </script>
 </body>
