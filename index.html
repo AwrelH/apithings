@@ -9,15 +9,19 @@
 <body>
     <div id="content">  </div>
     <script>
-        fetch('https://ci-swapi.herokuapp.com/api/frukt')
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector('#content').innerHTML = data;
-        })
+        fetch('https://ci-swapi.herokuapp.com/api/')
+        .then(response => response.text()) // replace text with json is possible
+        .then(data => displayData(data))
         .catch((e)=> {
-            console.error('Error: ', e);
+            console.error('Error: ', e); // catch error
             document.querySelector('#content').innerHTML = 'are you mad?';
         })
+
+        function displayData(data) {document.querySelector('#content').innerHTML = data; //callback function
+
+        }
+
+    
     </script>
 </body>
 </html>
